@@ -62,13 +62,20 @@ function buildBoard() {
             console.log('gBoard[' + i + '][' + j + ']:', gBoard[i][j])
         }
     }
-    // console.log('gBoard:', gBoard)
+    //// set const mines:
+    // gBoard[1][1].isMine = true
+    // gBoard[2][2].isMine = true
+    // gBoard[3][3].isMine = true
+    //// set random mines:
     for (let i = 0; i < gLevel.MINES; i++) {
-        gBoard[i][i].isMine = true
+        let rowIdx= getRandomInt(0,gLevel.MINES)
+        let colIdx= getRandomInt(0,gLevel.MINES)   
+        if(gBoard[rowIdx][colIdx].isMine !== true) gBoard[rowIdx][colIdx].isMine = true
+        else  i--
     }
+
+    // DOM:
     gBoard = setMinesNegsCount(gBoard)
-
-
 }
 
 function setMinesNegsCount(board) {
@@ -76,11 +83,11 @@ function setMinesNegsCount(board) {
     // run of every cell at the board
     for (let rowIdx = 0; rowIdx < gLevel.SIZE; rowIdx++) {
         for (let colIdx = 0; colIdx < gLevel.SIZE; colIdx++) {
-            //run on his negs and check if there mines
+            //run on his negs and check if there mines and count them
             for (let i = rowIdx - 1; i <= rowIdx + 1; i++) {
-                if (i < 0 || i > board.length - 1) continue
+                if (i < 0 || i > gLevel.SIZE - 1) continue
                 for (let j = colIdx - 1; j <= colIdx + 1; j++) {
-                    if (j < 0 || j > board[0].length - 1) continue
+                    if (j < 0 || j > gLevel.SIZE - 1) continue
                     if (i === rowIdx && j === colIdx) continue
                     if (board[i][j].isMine === true) {
                         board[rowIdx][colIdx].minesAroundCount++
@@ -95,13 +102,13 @@ function setMinesNegsCount(board) {
 function renderBoard(board) {
     console.log('board:', board)
 
-    let strHTML = '<table><tbody>'
+    let strHTML = '<table oncontextmenu="return false"><tbody>'
     for (let i = 0; i < gLevel.SIZE; i++) {
         strHTML += '<tr>'
         for (let j = 0; j < gLevel.SIZE; j++) {
             let cell = board[i][j]
             const className = `cell cell-${i}-${j}`
-            strHTML += `<td onclick="cellClicked(this, ${i}, ${j})" class="${className}">`
+            strHTML += `<td oncontextmenu="cellMarked(this, ${i}, ${j})" onclick="cellClicked(this, ${i}, ${j})" class="${className}">`
             if (cell.isShown) {
                 if (cell.isMarked) strHTML += FLAG
                 else if (!cell.isMine) strHTML += NUMS[gBoard[i][j].minesAroundCount]
@@ -135,9 +142,10 @@ function cellClicked(elCell, i, j) {
     }
 }
 
-function cellMarked(elCell) {
-    if (MouseEvent === 'RightClick')
-        gGmae
+function cellMarked(elCell, i, j) {
+    gBoard[i][j].isMarked = !gBoard[i][j].isMarked
+    if(gBoard[i][j].isMarked) elCell.innerText = FLAG
+    else elCell.innerText = ''
 }
 
 function checkGameOver() {
