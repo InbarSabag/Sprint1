@@ -1,0 +1,88 @@
+body{
+    text-align: center;
+    font-family: monospace;
+    font-size: 20px;
+    background-color: rgba(15, 81, 96, 0.71);
+    /* background-image: url("../img/background.jpg");
+    background-size: flex;
+    background-repeat: no-repeat; */
+}
+
+.header{
+    margin: 10px auto;
+    color: aliceblue;
+    width: 600px;
+    background-color: rgba(3, 68, 92, 0.652);
+    border-radius: 20px;
+    border: 5px solid rgb(3, 69, 92);
+}
+
+.levels{
+    margin: 10px auto;
+    color: aliceblue;
+    width: 600px;
+    background-color: rgba(3, 68, 92, 0.652);
+    border-radius: 20px;
+    border: 5px solid rgb(3, 69, 92);
+}
+
+.gameScore{
+    margin: 10px auto;
+    color: aliceblue;
+    width: 600px;
+    background-color: rgba(3, 68, 92, 0.652);
+    border-radius: 20px;
+    border: 5px solid rgb(3, 69, 92);
+}
+
+.gameBoard{
+    margin: 10px auto;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    width: 600px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    border: 5px solid rgb(3, 69, 92);
+}
+
+table {
+    border: 2px rgb(103, 102, 102) solid;
+    background-color: rgba(103, 102, 102, 0.566);
+    border-radius: 5px;
+    padding: 3px;
+    margin: 10px auto;
+    
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 27px;
+    border: 2px rgb(103, 102, 102) solid;
+    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 0.521);
+    cursor: pointer;
+}
+
+.cell:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shownCell{
+    background-color: rgba(238, 233, 233, 0.521);
+}
+
+button{
+    margin: 10px 5px;
+    font-size: 16px;
+    font-family: monospace;
+    background-color: rgba(90, 184, 219, 0.848);
+    border-radius: 5px;
+    border: 3px solid rgb(3, 69, 92);
+    cursor: pointer;
+}
+
+.startBtn{
+    font-size: 40px;
+}
