@@ -10,7 +10,7 @@
 </head>
 
 <body onload="initGame()">
-    <div class="header" >
+    <div class="header box" >
         <h1>MineSweeper Game</h1>
     </div>
 
@@ -18,25 +18,31 @@
 
         <div class="gameButtens">
 
-            <div class="levels">
+            <div class="levels box">
                 <h2>Choose level to play:</h2>
                 <button onclick="initGame(0)" class="beginnerBtn">Beginner</button>
                 <button onclick="initGame(1)" class="mediumBtn">Medium</button>
                 <button onclick="initGame(2)" class="expertBtn">Expert</button>
                 <br/>
-            <button onclick="initGame()" class="startBtn">😀</button>
+            <button onclick="restartGame()" class="startBtn">😀</button>
             </div>
         </div>
 
-        <div class="gameBoard">
+        <div class="gameBoard box">
 
         </div>
 
-        <div class="gameScore">
-            <h2 class="lives">❤❤❤</h2>
-            <h2 class="hint">💡💡💡</h2>
-            <h2 class="score">⏰</h2>
-            <h2 class="timer">🚩</h2>
+        <div class="gameScore box">
+            <a class="timer"></a> 
+            <a>  |  </a>
+            <a class="score"></a>
+            <br/>
+            <hr/>
+            <button class="undo">UNDO</button>
+            <a class="lives">💙💙💙</a>
+            <a class="hint">💡💡💡</a>
+            <button class="safeClick">Safe Click</button>
+            
         </div>
 
     </div>
